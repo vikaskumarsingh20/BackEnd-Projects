@@ -33,27 +33,28 @@ router.get("/admin", auth, isAdmin, (req,res) => {
 });
 
 
-// router.get("/getEmail" , auth, async (req,res) => {
+// to get all the details of user from id  
+router.get("/getEmail" , auth, async (req,res) => {
 
-//     try{
-//         const id = req.user.id;
-//         console.log("ID:" , id);
-//         const user = await User.findById(id);
+    try{
+        const id = req.user.id;
+        console.log("ID:" , id);
+        const user = await User.findById(id);
 
-//         res.status(200).json({
-//             success:true,
-//             user:user,
-//             message:'Welcome to the email route',
-//         })
-//     }
-//     catch(error) {
-//         res.status(500).json({
-//             success:false,
-//             error:error.message,
-//             message:'Fatt gya code',
-//         })
-//     }
+        res.status(200).json({
+            success:true,
+            user:user,
+            message:'Welcome to the email route',
+        })
+    }
+    catch(error) {
+        res.status(500).json({
+            success:false,
+            error:error.message,
+            message:'Fatt gya code',
+        })
+    }
 
-// });
+});
 
 module.exports = router;
