@@ -2,9 +2,12 @@
 const express = require('express');
 const app = express();
 
-//used to res.body 
+-> //this is old method to usedd in req.body but now not is using  
 const bodyParser = require("body-parser");
  app.use(bodyParser.json());
+
+//middleware
+app.use(express.json());
 
 
 //activate the server port no 3000
